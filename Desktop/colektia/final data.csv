@@ -1,0 +1,6 @@
+order_id,customer_id,name,country,amount,order_date,created_at,year_month,high_value
+1,1,John Doe,USA,150.5,2022-01-05 11:00:00,2022-01-05 10:00:00,2022-01,True
+2,2,Jane Smith,CANADA,220.0,2022-02-10 11:30:00,2022-02-10 09:30:00,2022-02,True
+3,1,John Doe,USA,99.99,2023-01-01 10:15:00,2022-01-05 10:00:00,2023-01,False
+4,3,David Johnson,USA,120.1,2023-05-15 12:20:00,2023-05-12 14:45:00,2023-05,True
+5,4,Lucy Brown,MEXICO,80.0,2023-06-10 09:00:00,2023-06-01 08:20:00,2023-06,False

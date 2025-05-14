@@ -63,37 +63,44 @@ Orders dimensions:  (5, 4)
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 4 entries, 0 to 3
 Data columns (total 4 columns):
- #   Column      Non-Null Count  Dtype           
----  ------      --------------  -----           
- 0   id          4 non-null      int64           
- 1   name        4 non-null      object          
- 2   country     4 non-null      object          
- 3   created_at  4 non-null      datetime64[ns]  
+| # | Column     | Non-Null Count | Dtype           |
+|---|------------|----------------|-----------------|
+| 0 | id         | 4 non-null     | int64           |
+| 1 | name       | 4 non-null     | object          |
+| 2 | country    | 4 non-null     | object          |
+| 3 | created_at | 4 non-null     | datetime64[ns]  |
+
 dtypes: datetime64[ns](1), int64(1), object(2)   
 memory usage: 260.0+ bytes
 Customers Info:  None
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 5 entries, 0 to 4
 Data columns (total 4 columns):
- #   Column       Non-Null Count  Dtype          
----  ------       --------------  -----          
- 0   id           5 non-null      int64          
- 1   customer_id  5 non-null      int64          
- 2   amount       5 non-null      float64        
- 3   order_date   5 non-null      datetime64[ns] 
+| # | Column       | Non-Null Count | Dtype    |
+|---|--------------|----------------|----------|
+| 0 | id           | 5 non-null     | int64    |
+| 1 | customer_id  | 5 non-null     | int64    |
+| 2 | amount       | 5 non-null     | float64  |
+| 3 | order_date   | 5 non-null     | object   |
 dtypes: datetime64[ns](1), float64(1), int64(2)  
 memory usage: 292.0 bytes
 Orders Info:  None 
 
-Nulos para Customers:  id            0
-name          0
-country       0
-created_at    0
+Nulos para Customers:  
+| Columna     | Nulos |
+|-------------|--------|
+| id          | 0      |
+| name        | 0      |
+| country     | 0      |
+| created_at  | 0      |
 dtype: int64
-Nulos para Orders:  id             0
-customer_id    0
-amount         0
-order_date     0
+Nulos para Orders:
+| Columna      | Nulos |
+|--------------|--------|
+| id           | 0      |
+| customer_id  | 0      |
+| amount       | 0      |
+| order_date   | 0      |
 dtype: int64
 
 # 3. Unir ambas tablas

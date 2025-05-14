@@ -37,20 +37,23 @@ conda install pandas sqlalchemy mysql-connector-python pyarrow
 
 # 1. Extraccion
 Output:
-customers
-   id           name country          created_at 
-0   1       John Doe     USA 2022-01-05 10:00:00 
-1   2     Jane Smith  Canada 2022-02-10 09:30:00 
-2   3  David Johnson     USA 2023-05-12 14:45:00 
-3   4     Lucy Brown  Mexico 2023-06-01 08:20:00 
+----- Customer -----
+| id | name           | country | created_at           |
+|----|----------------|---------|----------------------|
+| 1  | John Doe       | USA     | 2022-01-05 10:00:00  |
+| 2  | Jane Smith     | Canada  | 2022-02-10 09:30:00  |
+| 3  | David Johnson  | USA     | 2023-05-12 14:45:00  |
+| 4  | Lucy Brown     | Mexico  | 2023-06-01 08:20:00  |
 
-orders
-   id  customer_id  amount          order_date   
-0   1            1  150.50 2022-01-05 11:00:00   
-1   2            2  220.00 2022-02-10 11:30:00   
-2   3            1   99.99 2023-01-01 10:15:00   
-3   4            3  120.10 2023-05-15 12:20:00   
-4   5            4   80.00 2023-06-10 09:00:00   
+
+----- Orders -----
+| id | customer_id | amount | order_date           |
+|----|-------------|--------|----------------------|
+| 1  | 1           | 150.50 | 2022-01-05 11:00:00  |
+| 2  | 2           | 220.00 | 2022-02-10 11:30:00  |
+| 3  | 1           | 99.99  | 2023-01-01 10:15:00  |
+| 4  | 3           | 120.10 | 2023-05-15 12:20:00  |
+| 5  | 4           | 80.00  | 2023-06-10 09:00:00  |  
 
 # 2. Exploracion y Validacion
 Output:
@@ -96,48 +99,55 @@ dtype: int64
 # 3. Unir ambas tablas
 Output:
 Joined DataFrame:
-    order_id  customer_id           name country  amount          order_date          created_at
-0         1            1       John Doe     USA  150.50 2022-01-05 11:00:00 2022-01-05 10:00:00
-1         2            2     Jane Smith  Canada  220.00 2022-02-10 11:30:00 2022-02-10 09:30:00
-2         3            1       John Doe     USA   99.99 2023-01-01 10:15:00 2022-01-05 10:00:00
-3         4            3  David Johnson     USA  120.10 2023-05-15 12:20:00 2023-05-12 14:45:00
-4         5            4     Lucy Brown  Mexico   80.00 2023-06-10 09:00:00 2023-06-01 08:20:00
+| order_id | customer_id | name           | country | amount | order_date           | created_at           |
+|----------|-------------|----------------|---------|--------|----------------------|----------------------|
+| 1        | 1           | John Doe       | USA     | 150.50 | 2022-01-05 11:00:00  | 2022-01-05 10:00:00  |
+| 2        | 2           | Jane Smith     | Canada  | 220.00 | 2022-02-10 11:30:00  | 2022-02-10 09:30:00  |
+| 3        | 1           | John Doe       | USA     | 99.99  | 2023-01-01 10:15:00  | 2022-01-05 10:00:00  |
+| 4        | 3           | David Johnson  | USA     | 120.10 | 2023-05-15 12:20:00  | 2023-05-12 14:45:00  |
+| 5        | 4           | Lucy Brown     | Mexico  | 80.00  | 2023-06-10 09:00:00  | 2023-06-01 08:20:00  |
+
 
 # 4. Filtrar datos
 Output:
 USA DataFrame:
-    order_id  customer_id           name country  amount          order_date          created_at
-0         1            1       John Doe     USA  150.50 2022-01-05 11:00:00 2022-01-05 10:00:00
-2         3            1       John Doe     USA   99.99 2023-01-01 10:15:00 2022-01-05 10:00:00
-3         4            3  David Johnson     USA  120.10 2023-05-15 12:20:00 2023-05-12 14:45:00
+| order_id | customer_id | name           | country | amount | order_date           | created_at           |
+|----------|-------------|----------------|---------|--------|----------------------|----------------------|
+| 1        | 1           | John Doe       | USA     | 150.50 | 2022-01-05 11:00:00  | 2022-01-05 10:00:00  |
+| 3        | 1           | John Doe       | USA     | 99.99  | 2023-01-01 10:15:00  | 2022-01-05 10:00:00  |
+| 4        | 3           | David Johnson  | USA     | 120.10 | 2023-05-15 12:20:00  | 2023-05-12 14:45:00  |
+
  USA DataFrame dimensions:  (3, 7)
 
 # 5. Transformar datos
 Output:
 Datos transformados
-   order_id  customer_id           name country  amount          order_date year_month  high_value
-0         1            1       John Doe     USA  150.50 2022-01-05 11:00:00    2022-01        True
-1         2            2     Jane Smith  Canada  220.00 2022-02-10 11:30:00    2022-02        True
-2         3            1       John Doe     USA   99.99 2023-01-01 10:15:00    2023-01       False
-3         4            3  David Johnson     USA  120.10 2023-05-15 12:20:00    2023-05        True
-4         5            4     Lucy Brown  Mexico   80.00 2023-06-10 09:00:00    2023-06       False
+| order_id | customer_id | name           | country | amount | order_date           | year_month | high_value |
+|----------|-------------|----------------|---------|--------|----------------------|------------|------------|
+| 1        | 1           | John Doe       | USA     | 150.50 | 2022-01-05 11:00:00  | 2022-01    | True       |
+| 2        | 2           | Jane Smith     | Canada  | 220.00 | 2022-02-10 11:30:00  | 2022-02    | True       |
+| 3        | 1           | John Doe       | USA     | 99.99  | 2023-01-01 10:15:00  | 2023-01    | False      |
+| 4        | 3           | David Johnson  | USA     | 120.10 | 2023-05-15 12:20:00  | 2023-05    | True       |
+| 5        | 4           | Lucy Brown     | Mexico  | 80.00  | 2023-06-10 09:00:00  | 2023-06    | False      |
 Datos transformados dimensions:  (5, 9)
 
 # 6. Agregacion y estadisticas
 Output:
 AGG by Conuntry:
-   country  total_orders  sum_amount  avg_amount
-0  Canada             1      220.00      220.00
-1  Mexico             1       80.00       80.00
-2     USA             3      370.59      123.53
+| country | total_orders | sum_amount | avg_amount |
+|---------|--------------|------------|------------|
+| Canada  | 1            | 220.00     | 220.00     |
+| Mexico  | 1            | 80.00      | 80.00      |
+| USA     | 3            | 370.59     | 123.53     |
 
 # 7. Ordenar y Clasificar
 Output:
 Sorted by sum_amount:
-   country  total_orders  sum_amount  avg_amount
-0     USA             3      370.59      123.53
-1  Canada             1      220.00      220.00
-2  Mexico             1       80.00       80.00
+| country | total_orders | sum_amount | avg_amount |
+|---------|--------------|------------|------------|
+| USA     | 3            | 370.59     | 123.53     |
+| Canada  | 1            | 220.00     | 220.00     |
+| Mexico  | 1            | 80.00      | 80.00      |
 
 # 8. Normalizacion
 Output:

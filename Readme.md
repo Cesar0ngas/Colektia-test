@@ -1,4 +1,4 @@
-# Documentación Detallada del Proceso ETL
+# Documentación del Proceso ETL
 
 Este repositorio contiene la implementación completa de un flujo ETL (Extract, Transform, Load) usando Python y MySQL. A continuación se describen en detalle cada uno de los entregables y los pasos realizados.
 
